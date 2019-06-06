@@ -1,3 +1,6 @@
+# Voce precisa ter o apache previamente instalado, assim como o git
+# Testado apenas em CentOS
+
 echo "Clonando repositorio..."
 sudo git clone https://github.com/abelantunes98/AntiDdos-CentOS
 cd AntiDdos-CentOS
@@ -5,6 +8,16 @@ cd AntiDdos-CentOS
 echo "Baixando dependencias."
 sudo yum install httpd-devel
 sudo yum groupinstall 'Development tools'
+sudo wget http://www.rfxn.com/downloads/apf-current.tar.gz
+sudo tar -zxvf apf-current.tar.gz
+sudo rm apf-current.tar.gz
+cd apf-*
+sudo bash ./install.sh
+
+echo "Caso pergunte, selecione sobrescrever."
+cd ..
+rm -rf apf-*
+sudo mv conf.apf /etc/apf/conf.apf
 
 echo "Baixando arquivos..."
 sudo wget https://codeload.github.com/shivaas/mod_evasive/zip/master
