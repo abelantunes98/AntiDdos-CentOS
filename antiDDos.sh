@@ -34,6 +34,8 @@ apachectl -M | grep evasive
 
 echo "Configurando..."
 cd ..
-sudo mv httpd.conf /etc/httpd/conf/
+
+#sudo mv httpd.conf /etc/httpd/conf/
+echo "Caso o arquivo /etc/httpd/conf/httpd.conf esteja vazio, substitua pelo que foi baixado, caso contrario\ncole o conteudo do arquivo httpd.conf que foi baixado no final dele."
 
 echo "execute sudo nano /etc/httpd/conf/httpd.conf e mude o email por um seu."
